@@ -6,9 +6,9 @@ It has following components
 * docker rest apis
 * client --> docker cli
 
-(./docker_engine.png)
+![Docker Engine](./docker_engine.png)
 
-(./docker_architcture.png)
+![Docker Architecture](./docker_architcture.png)
 
 Docker doemon program runs on Docker Host where docker engine is running. 
 We invoke/command Docker Engine by making cli commands using Docker Client. Docker client can be remote or local to docker host.

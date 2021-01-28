@@ -15,7 +15,7 @@ Docker Enterprose edition runs on
 * Ubuntu
 * RHEL
 
-![Docker Editiions](./docker_editions.png)
+![Docker Editions](./docker_editions.png)
 
 Download the edition that you need from https://hub.docker.com/search?q=&type=edition&offering=community
 
