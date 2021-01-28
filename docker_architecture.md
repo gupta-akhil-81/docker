@@ -25,4 +25,14 @@ They provide resource isolation. To control resouce allocation and usage by cont
 e.g. CPU limits, CPU reservation, Memory Limits, Memory reservation.
  CGroup limits container resoure allocation and usage, and avoid server resourve exhausting, and impacting other docker hosts runnning on same server.
 
+# Docker Swarm
+It is a cluster of Docker Worker Nodes.
+
+# Docker backup 
+Backup can be done for-
+* Swarm Cluster
+* Universal Control Plane
+* Docker Trusted Registry
+* Container volume data
+
 
