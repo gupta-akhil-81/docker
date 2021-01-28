@@ -15,13 +15,13 @@ Docker Enterprose edition runs on
 * Ubuntu
 * RHEL
 
-![Docker Editions](./docker_editions.png)
+![Docker Editions](./images/docker_editions.png)
 
 Download the edition that you need from https://hub.docker.com/search?q=&type=edition&offering=community
 
 Docker Enterprise Edition comes with -
 * Universal Control Plane (UCP)
-* Docker Trusted Registry (DTR)
+* Docker Trusted Registry (DTR) - this is a local / on-premise private registry of docker images.
 
 ### Minimum HW requirements-
 Need 8 GB RAM for Manager nodes and DTR nodes.
