@@ -44,34 +44,48 @@ To tag an image.
 ## FROM
 defined the base image. it should be the first instruction in docker file.
 ## ADD
-copies a file into an image. it suports tar and remote url
+copies a file into an image. it suports tar and remote url  
 ## COPY 
 copy files into an image. preferred over ADD.
 ## VOLUME
 creates a mount point
 ## ENTRYPOINT
-the exeuctable to run when container is run
+the exeuctable to run when container is run. it is optional. It can be used wih CMD.
 ## CMD 
-provide arguments for the entrypoint. only one is allowed.
+Can be used with or without ENTRYPOINT. 
+Provide arguments for the entrypoint program to be executed when container starts. 
+Only one is allowed.
 ## EXPOSE
-documents the ports that should be published
+define the ports that should be published
 ## ENV
 define env varibales in the container
 ## ONBUILD
 command to run when another image is build from this image
 ## RUN
-run a new command in a new layer
+run a new command in a new layer. runs the command, wait for it to finish and saves the results in a new layer in the image.
 ## WORKDIR
 defines the working directory of the container
+## USER
+set which user the container will run as
+
 
 
 # DOCKER BUILD command options
 -f , --file --> specify the build file name with file path
 
 build context --> build commands add all the files and folders that are present in the buld context folder. To ignore file to be added into an image use .dockerignore file.
---no-cache`=trye --> build will not pull needed images from local cache and it will pull all needed images from registry.
+--no-cache`=true --> build will not pull needed images from local cache and it will pull all needed images from registry.
 -t --> tag for the image e.g. -t unbuntu:v2   here ubuntu is reponame and v2 is tag name.
 
+Each line in the docker file creates an image.
+Each line takes the image created in the previous line, and makes another image on top of it.
+The previous image remain unchanged.
+A program or CMD running in one line, runs only in the image of that line. When a new line starts, the program running at the previous line stops.
+Output of each line is cached as an image.
+Each line cause a docker run command.
+
+All dockerfile commands are listed here: 
+https://docs.docker.com/engine/reference/builder/
 
 
 # Squashing an image
