@@ -12,7 +12,8 @@ To pull a new image from the docker registry
 > docker pull <image name>
 
 Get the list of all images in the docker engine
-> docker images
+> docker images   --> deprecated
+> docker image ls
 
 Tag a image on your local
 > docker tag <image_id> <docker_id>/<image_name>:<tag_name>
@@ -26,6 +27,13 @@ e.g.
 To delete a docker image from local
 > docker image rm <image_id>
 > -f --> for force delete
+
+
+To clan the all the images from the local repository. It removes all unused images. i.e. not used by any container
+> docker image prune -a
+
+To see all current/history containers.
+> docker container ls -a
 
 To see what containers are running now
 > docker ps
