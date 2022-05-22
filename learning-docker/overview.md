@@ -33,11 +33,17 @@ Two containers are completely isolated from each other.
 Download and install containerd, docker-ce-cli and docket-engine.
 
 > curl -o containerd.deb https://download.docker.com/linux/debian/dists/bullseye/pool/stable/amd64/containerd.io_1.6.4-1_amd64.deb
+> 
 > sudo dpkg -i containerd.deb
+> 
 >curl -o docker-ce-cli.deb https://download.docker.com/linux/debian/dists/bullseye/pool/stable/amd64/docker-ce-cli_20.10.9~3-0~debian-bullseye_amd64.deb
+>
 >sudo dpkg -i docker-ce-cli.deb 
+>
 > curl -o docker-engine.deb https://download.docker.com/linux/debian/dists/bullseye/pool/stable/amd64/docker-ce_20.10.9~3-0~debian-bullseye_amd64.deb
+> 
 > sudo dpkg -i docker-engine.deb
+> 
 
 To test the installation, run following command. It will pull an image and run it and print a message.
 > sudo docker run hello-world
