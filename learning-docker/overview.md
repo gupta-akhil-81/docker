@@ -43,9 +43,91 @@ Download and install containerd, docker-ce-cli and docket-engine.
 > curl -o docker-engine.deb https://download.docker.com/linux/debian/dists/bullseye/pool/stable/amd64/docker-ce_20.10.9~3-0~debian-bullseye_amd64.deb
 > 
 > sudo dpkg -i docker-engine.deb
-> 
 
 To test the installation, run following command. It will pull an image and run it and print a message.
 > sudo docker run hello-world
 
 There are other options to install container from registry or from ready-made Docker installation script.
+
+# Sample Application 
+Test with a sample To-Do list web app.
+Donwload the sample app code:
+> git clone https://github.com/docker/getting-started.git
+
+Go to /app folder and create a Dockerfile with below contents:
+```
+# syntax=docker/dockerfile:1
+FROM node:12-alpine
+RUN apk add --no-cache python2 g++ make
+WORKDIR /app
+COPY . .
+RUN yarn install --production
+CMD ["node", "src/index.js"]
+EXPOSE 3000
+```
+
+Build the image file using following command:
+> docker build -t getting-started .
+
+"-t" is to provide the tag name for the image.
+"getting-started" is the tag name.
+
+To see list of all images on your local system use following command:
+> docker images
+you must see the newly created image in the list.
+
+Run a container from this image using the command:
+> docker -dp 80:3000 getting-started
+
+"-dp" means detached mode in the background and setting the port 30 on the host-VM to send requests to port 3000 in the container.
+"getting-started"  is the name or tag of the image.
+
+See list of running containers:
+> docker stats 
+
+or 
+
+> docker ps
+
+To stop the conatiner use following command:
+> docker stop <<container_name>>
+
+or 
+
+> docker stop <<container_id>>
+
+get the conatiner_name from the list of containers.
+
+To remove the container from local system use follwing command:
+> docker rm <<container_id>>
+
+To stop and remove in one single command use following:
+> docker rm -f <<container_id>>
+
+
+# Docker Hub Repository - Default Docker Registry
+Docker Hub is the default registry for Docker images.
+
+## Login to your docker hub account using following command
+> docker login -u <<user name>>
+  
+Create a repo in docker hub and make it public.
+
+  
+## Push the image of your app into your docker hub repository, so that it can be shared with others. 
+> docker tag source_image[:tag_name] target_image[:tag_name]
+>
+> docker tag getting-started akhilgupta81/docker-getting-started
+> 
+> docker push image[:tage]
+>
+> docker push akhilgupta81/docker-getting-started
+  
+## Pull the image from a repo and run container from it
+> docker login -u username
+>
+> docker pull image[:tag]
+>
+> docker pull akhilgupta81/docker-getting-started
+>
+> docker run -dp 80:3000 akhilgupta81/docker-getting-started
